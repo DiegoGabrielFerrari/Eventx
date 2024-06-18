@@ -8,29 +8,67 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="./stylesheets/style.css">
   <style>
-    /* Estilo adicional para a imagem */
-    .fixed-image {
-      max-width: 400px; /* Define a largura máxima da imagem */
-      height: auto; /* Mantém a proporção da imagem */
-    }
-  </style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Fundo claro para todo o corpo */
+  }
+  .event-container {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Largura máxima do contêiner */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .event-image {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  .event-content {
+    padding: 20px;
+  }
+  .event-title {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  .event-details {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 15px 30px;
+    font-size: 1rem;
+    border-radius: 5px;
+  }
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+</style>
 </head>
 <body>
   <%- include('navbar.ejs') %>
 
 
+  
   <div class="container">
     <div class="row">
       <div class="col-md-8 mx-auto">
-        <div class="card">
-          <!-- Adiciona a classe 'fixed-image' para definir o tamanho fixo da imagem -->
-          <img src="/uploads/<%= event.coverImage %>" class="card-img-top fixed-image" alt="Imagem de Capa do Evento">
-          <div class="card-body">
-            <h5 class="card-title"><%= event.title %></h5>
-            <p class="card-text"><strong>Tipo:</strong> <%= event.type %></p>
-            <p class="card-text"><strong>Descrição:</strong> <%= event.description %></p>
-            <p class="card-text"><strong>Data:</strong> <%= event.date.toDateString() %></p>
-            <!-- Formulário para registro de usuário no evento -->
+        <div class="event-container">
+          <img src="/uploads/<%= event.coverImage %>" class="event-image" alt="Imagem de Capa do Evento">
+          <div class="event-content">
+            <h1 class="event-title"><%= event.title %></h1>
+            <p class="event-details"><strong>Tipo:</strong> <%= event.type %></p>
+            <p class="event-details"><strong>Descrição:</strong> <%= event.description %></p>
+            <p class="event-details"><strong>Data:</strong> <%= event.date.toDateString() %></p>
             <form action="/events/<%= event._id %>/register" method="POST">
               <button type="submit" class="btn btn-primary">Registrar-se para este evento</button>
             </form>

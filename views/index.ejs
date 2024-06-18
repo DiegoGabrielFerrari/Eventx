@@ -7,6 +7,7 @@
   <!-- Adicionando Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="./stylesheets/style.css">
+  <link rel="stylesheet" href="./stylesheets/card.css">
  
 </head>
 <body>
@@ -40,17 +41,17 @@
   <div class="container">
     <div class="row">
       <% events.forEach(event => { %>
-        <div class="col-lg-4 col-md-6 mb-4">
+        <div class=" col-md-4 col-sm-6 col-xs-12 mb-4">
           <div class="card h-100 shadow-sm">
             <!-- Imagem de Capa do Evento -->
-            <img src="uploads/<%= event.coverImage %>" class="card-img-top" alt="Imagem de Capa do Evento" style="height: 200px; object-fit: cover;">
+            <img src="uploads/<%= event.coverImage %>" class="card-img-top" alt="Imagem de Capa do Evento">
             <div class="card-body d-flex flex-column">
               <!-- Título do Evento -->
               <h5 class="card-title"><%= event.title %></h5>
               <!-- Tipo do Evento -->
-              <p class="card-text"><strong>Tipo:</strong> <%= event.type %></p>
+              <p class="card-text contCard"><strong>Tipo:</strong> <%= event.type %></p>
               <!-- Descrição do Evento -->
-              <p class="card-text"><strong>Descrição:</strong> <%= event.description %></p>
+              <p class="card-text desc"><strong>Descrição:</strong> <%= event.description %></p>
               <!-- Data do Evento -->
               <p class="card-text"><strong>Data:</strong> <%= event.date.toDateString() %></p>
               <!-- Botão para mais detalhes -->
@@ -63,6 +64,9 @@
       <% }); %>
     </div>
   </div>
+  
+  
+  
   
 </main>
 <footer class="footer text-light " style="background-color: #638ecb;">
