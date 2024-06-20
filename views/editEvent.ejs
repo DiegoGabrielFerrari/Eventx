@@ -1,47 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Navbar Responsiva com Bootstrap</title>
-  <!-- Adicionando Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../stylesheets/style.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Navbar Responsiva com Bootstrap</title>
+        <!-- Adicionando Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../stylesheets/style.css">
+    </head>
+    
+    <style>
+        h1 {
+            color: #628ecb;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn-block {
+    display: block;
+    width: 400px;
+    margin: 0 auto; 
+}
+        button:hover {
+            background-color: #009bff;
+        }
+    </style>
+    
 
-<body>
-    <%- include('navbar.ejs', { userId: userId }) %>
-    <div class="container">
-        <div class="row justify-content-center mt-5">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body">
-                        <h1 class="card-title text-center mb-4">Editar Evento</h1>
-                        <form action="/events/<%= event._id %>/edit" method="POST">
-                            <div class="form-group">
-                                <label for="title">Título:</label>
-                                <input type="text" class="form-control" id="title" name="title" value="<%= event.title %>" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="type">Tipo:</label>
-                                <input type="text" class="form-control" id="type" name="type" value="<%= event.type %>" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="description">Descrição:</label>
-                                <textarea class="form-control" id="description" name="description" rows="4" required><%= event.description %></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="date">Data:</label>
-                                <input type="date" class="form-control" id="date" name="date" value="<%= event.date.toISOString().substr(0, 10) %>" required>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-                            </div>
-                        </form>
+
+
+    <body>
+        <%- include('navbar.ejs', { userId: userId }) %>
+        <div class="container">
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-8">
+                    <div class="card form-container">
+                        <div class="card-body">
+                            <h1 class="card-title text-center mb-4">Editar Evento</h1>
+                            <form action="/events/<%= event._id %>/edit" method="POST">
+                                <div class="form-group">
+                                    <label for="title">Título:</label>
+                                    <input type="text" class="form-control" id="title" name="title" value="<%= event.title %>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="type">Tipo:</label>
+                                    <input type="text" class="form-control" id="type" name="type" value="<%= event.type %>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Descrição:</label>
+                                    <textarea class="form-control" id="description" name="description" rows="4" required><%= event.description %></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="date">Data:</label>
+                                    <input type="date" class="form-control" id="date" name="date" value="<%= event.date.toISOString().substr(0, 10) %>" required>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div> 
-</body>
+
+        
+    </body>
+    
 </html>

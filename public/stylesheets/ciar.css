@@ -51,7 +51,7 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 4rem;
         }
         button:hover {
             background-color: #009bff;

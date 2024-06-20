@@ -1,8 +1,9 @@
 @import './carrossel.css';
-
+@import './detalhes.css';
+@import './nav.css';
 
 body{
-    background-color:  #d5deef;
+    background-color:  #f0f3fa;
 }
 
 
